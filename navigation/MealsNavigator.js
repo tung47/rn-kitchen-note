@@ -33,7 +33,6 @@ const MealsNavigator = createStackNavigator(
     MealDetail: MealDetailScreen,
   },
   {
-    // initialRouteName: 'Categories',
     defaultNavigationOptions: defaultStackNavOptions,
   }
 );
@@ -44,7 +43,6 @@ const FavoritesNavigator = createStackNavigator(
     MealDetail: MealDetailScreen,
   },
   {
-    // initialRouteName: 'Categories',
     defaultNavigationOptions: defaultStackNavOptions,
   }
 );
@@ -88,13 +86,31 @@ const MealsFavoriteTabNavigator =
         },
       });
 
-const FiltersNavigator = createStackNavigator({
-  Filters: FiltersScreen,
-});
+const FiltersNavigator = createStackNavigator(
+  {
+    Filters: FiltersScreen,
+  },
+  {
+    defaultNavigationOptions: defaultStackNavOptions,
+  }
+);
 
-const MainNavigator = createDrawerNavigator({
-  MealsFavorites: MealsFavoriteTabNavigator,
-  Filters: FiltersNavigator,
-});
+const MainNavigator = createDrawerNavigator(
+  {
+    MealsFavorites: {
+      screen: MealsFavoriteTabNavigator,
+      navigationOptions: {
+        drawerLabel: 'Meals',
+      },
+    },
+    Filters: FiltersNavigator,
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.accent,
+      labelStyle: { fontFamily: 'open-sans-bold' },
+    },
+  }
+);
 
 export default createAppContainer(MainNavigator);
