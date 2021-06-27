@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CustomHeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import ListItem from '../components/ListItem';
-import { toggleFavorite } from '../redux/actions/meal';
+import { toggleFavorite } from '../redux/actions/meals';
 
 const MealDetailScreen = (props) => {
   const availableMeals = useSelector((state) => state.meals.meals);
