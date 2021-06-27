@@ -1,23 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, Switch, Platform } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/HeaderButton';
-import Colors from '../constants/Colors';
-
-const FilterSwitch = (props) => {
-  return (
-    <View style={styles.filterContainer}>
-      <Text>{props.label}</Text>
-      <Switch
-        trackColor={{ true: Colors.primary }}
-        thumbColor={Platform.OS === 'android' ? Colors.primary : ''}
-        value={props.state}
-        onValueChange={props.onChange}
-      />
-    </View>
-  );
-};
+import FilterSwitch from '../components/FilterSwitch';
 
 const FiltersScreen = (props) => {
   const { navigation } = props;
@@ -104,13 +90,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     margin: 20,
     textAlign: 'center',
-  },
-  filterContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '80%',
-    marginVertical: 10,
   },
 });
 
